@@ -1,400 +1,240 @@
-*{
+* {
     padding: 0;
     margin: 0;
+    box-sizing: border-box; /* Añadido para que padding/margin no afecten el tamaño total */
 }
 
-body{
+body {
     background-color: rgb(214, 214, 214);
-    height: 100%;
+    min-height: 100vh; /* Cambiado de height a min-height para flexibilidad */
+    font-family: Arial, sans-serif; /* Fuente por defecto para consistencia */
 }
-.logo{
+
+.logo {
     background: white;
-    height: 6%;
-    padding: 10px 0;
+    padding: 1rem 0; /* Usamos rem para escalabilidad */
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Distribuimos mejor los elementos */
+    flex-wrap: wrap; /* Permitimos que se ajuste en pantallas pequeñas */
 }
 
-.Publicaciones{
+.Publicaciones {
     background: white;
-    height: 44%;
-    margin: 3px 0 3px 0;
+    margin: 0.5rem 0; /* Reducido y usando rem */
+    padding: 1rem; /* Añadido padding para mejor espaciado interno */
 }
 
-.Publicaciones-2{
-    background: rgba(255, 255, 255, 0);
-    height: 44%;
-    margin: 1px 0 1px 0;
-}
-
-.Fin{
+.Fin {
     background: white;
-    padding: 10px 0;
+    padding: 1rem 0;
     display: flex;
-    align-items: center;
+    justify-content: space-around; /* Mejor distribución de íconos */
+    position: sticky; /* Opcional: fija el footer en la parte inferior */
+    bottom: 0;
 }
-.margin{
-    margin: auto;
-    margin-left: 5px;
+
+.margin {
+    margin-left: 1rem;
     display: flex;
     align-items: center;
     color: #026C80;
 }
-.iconos{
-    width: 32px;
-    height: 32px;
-    margin: 0 5%;
-}
-.ache1{
-    margin: auto;
-    font-size: 25px;
-    font-family: "Bungee Shade";
-}
-.abajo{
-    margin: auto;
+
+.iconos {
+    width: 2rem; /* Usamos rem para escalabilidad */
+    height: 2rem;
+    margin: 0 1rem;
 }
 
-.chico{
-    font-size: 10px;
+.ache1 {
+    font-size: 1.5rem; /* Escalable */
+    font-family: "Bungee Shade", sans-serif;
 }
-.nombre{
+
+.abajo {
+    margin: 0 1rem;
+}
+
+.chico {
+    font-size: 0.75rem; /* Escalable */
+}
+
+.nombre {
     display: flex;
     align-items: center;
 }
 
-.perfil{
+.perfil {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+
+.perfil2 {
     display: flex;
     align-items: center;
-    margin: auto;
-    padding: 10px 0;
+    flex: 1; /* Permite que crezca o se encoja según el espacio */
 }
-.perfil2{
-    width: 70%;
+
+.EmpleadoSi2 {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
-}
-.EmpleadoSi2{
-    width: 30%;
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    padding-right: 10px;
+    padding-right: 1rem;
 }
 
-.ftPerfil{
-    border: solid rgba(0, 0, 0,.13) 1px;
-    border-radius: 100%;
+.ftPerfil {
+    border: solid rgba(0, 0, 0, 0.13) 1px;
+    border-radius: 50%;
+    width: 2.5rem; /* Escalable */
+    height: 2.5rem;
 }
 
-.EmpleadoSi{
-    color: rgb(14, 184, 14);
-    text-align: right;
-    margin: auto;
-    margin-right: 5%;
-}
-
-.EmpleadoNo{
-    color: rgb(150, 18, 8);
-    text-align: right;
-    margin: auto;
-    margin-right: 5%;
-}
-
-.texto{
+.texto {
     text-align: left;
-    font-size: 14px;
-    margin-left: 4px;
-    margin-bottom: 2px;
-    
+    font-size: 0.875rem; /* Escalable */
+    margin: 0.5rem 1rem;
 }
 
-.imagen{
-    height: 100%;
-    width: 49%;
-    
-    margin: auto;
+.imagen {
+    max-width: 100%; /* Asegura que las imágenes no desborden */
+    height: auto; /* Mantiene proporciones */
 }
 
-.fotos{
+.fotos {
     display: flex;
-    padding: 0px 0;
+    flex-wrap: wrap; /* Permite que las imágenes se ajusten en pantallas pequeñas */
+    gap: 0.5rem; /* Espacio entre imágenes */
 }
 
 .fotos img:nth-child(1):nth-last-child(1) {
-    width: 100%; 
-    
+    width: 100%;
 }
 
 .fotos img:nth-child(1):nth-last-child(2),
 .fotos img:nth-child(2):nth-last-child(1) {
-    width: 49%; 
+    width: 49%;
 }
 
-.hrPubli{
+.hrPubli {
     border: none;
     background-color: rgb(199, 199, 199);
     height: 1px;
+    margin: 0.5rem 0;
 }
 
-.interaccion{
+.interaccion {
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    padding: 10px 0;
-    margin: auto;
-}
-.iconos2{
-    width: 25px;
-    height: 25px;
-}
-.iconos3{
-    width: 22px;
-    height: 22px;
+    padding: 0.5rem 0;
 }
 
-.Ticonos3{
-font-size: 12px;
+.iconos2 {
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
-.dInt{
-    display: flex;
-    align-items: center;
-    width: 40%;
-    justify-content: center;
+.iconos3 {
+    width: 1.375rem;
+    height: 1.375rem;
 }
 
-.dInt2{
-    display: flex;
-    align-items: center;
-    width: 20%;
-    justify-content: center;
-}
-.logo img{
-    margin: 0 18px;
-}
-.estado{
-    color: blueviolet;
-}
-.negro{
-    color: black;
+.Ticonos3 {
+    font-size: 0.75rem;
 }
 
-
-
-
-.empleos-todo{
-    background-color: white;
-    margin-top: 2px;
-    padding: 20px 0px;
-}
-
-.busqueda-empleo{
-    margin: auto;
-    background-color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    width: 93% !important;
-    max-width: 93% !important;
-    border: 1px solid rgb(157, 157, 157);
-    border-radius: 4px;
-}
-.empleos-parati{
-    display: flex;
-    padding: 20px 0 0;
-}
-.empleos-parati p{
-    font-size: 15px;
-    margin: auto;
-    text-align: center;
-    padding: 5px;
-    width: 35%;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-.input-busqueda-empleo::placeholder, .boton-busqueda-empleo{
-    font-size: 14px;
-}
-
-.variable2{
-    border-bottom: 4px solid #026C80;
-}
-
-.input-busqueda-empleo, .boton-busqueda-empleo{
-    border: none;
-}
-.input-busqueda-empleo{
-    margin: 0 15px;
-    max-width: 30%;
-}
-
-.boton-busqueda-empleo{
-    background-color: #026C80;
-    color: white;
-    border-radius: 2px;
-    padding: 3px 10px;
-}
-
-.trabajos{
-    background-color: white;
-    margin:  auto;
-    padding: 3px 5px;
-}
-
-.trabajo-div{
-    border: 1px solid rgb(205, 204, 204);
-    border-radius: 7px;
-}
-
-.dinero{
-    color: rgb(9, 153, 9);
-}
-.caracteristicas-div{
-    max-width: 95%;
-    display: flex;
-    margin: 10px auto;
-}
-
-.caracteristicas{
-    background-color: #026C80;
-    color: rgb(255, 255, 255);
-    margin: auto;
-    padding: 2px 22px;
-    border-radius: 2px;
-}
-
-.descripcion-div{
-    max-width: 80%;
-    margin: 15px auto;
-}
-
-.trabajo-tipo{
-    display: flex;
-    align-items: center;
-}
-
-.foto-empresa-datos{
-    display: flex;
-    align-items: center;
-}
-.iconosE{
-    width: 35px;
-    height: 35px;
-    margin-right:7px;
-    box-shadow: 0px 5px 4px rgb(166, 166, 166);
-}
-
-.datos-trabajo{
-    display: flex;
-    align-items: center;
-}
-
-.trabajo-div{
-    padding: 7px;
-}
-.caracteristicas-p{
-    font-weight: 600;
-    font-size: 11px;
-    font-weight: 700;
-    font-family: "Inter";
-}
-
-.letra-trabajo{
-    color: black;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-weight: 400;
-}
-
-.ganancias{
-    margin: auto;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 14px;
-    
-}
-
-.letra-descripcion{
-    font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-
-
-
-
-
-
-.div-imagenes-publicacion{
+.dInt, .dInt2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 300px;
-    background-color: rgb(206, 206, 206);
-    margin: 70px 0;
 }
 
-.div-publicacion-texto{
-    margin: 30px 10px 100px;
+/* Media Queries para diferentes tamaños de pantalla */
+@media (max-width: 480px) { /* Móviles */
+    .logo {
+        padding: 0.5rem;
+        flex-direction: column; /* Apila elementos en pantallas pequeñas */
+    }
+
+    .iconos {
+        width: 1.5rem;
+        height: 1.5rem;
+        margin: 0 0.5rem;
+    }
+
+    .ache1 {
+        font-size: 1.2rem;
+    }
+
+    .perfil {
+        flex-direction: column; /* Apila perfil en móviles */
+        text-align: center;
+    }
+
+    .perfil2 {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .EmpleadoSi2 {
+        width: 100%;
+        justify-content: center;
+        padding: 0.5rem 0;
+    }
+
+    .imagen {
+        width: 100%; /* Una imagen por fila en móviles */
+    }
+
+    .interaccion {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .dInt, .dInt2 {
+        width: 45%; /* Ajusta el ancho para que quepan dos por fila */
+    }
 }
 
-.publicacion-texto{
-    color: rgb(166, 166, 166);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 13px;
-    font-weight: 500;
+@media (min-width: 481px) and (max-width: 768px) { /* Tablets */
+    .iconos {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .ache1 {
+        font-size: 1.5rem;
+    }
+
+    .perfil2 {
+        width: 60%;
+    }
+
+    .EmpleadoSi2 {
+        width: 40%;
+    }
+
+    .imagen {
+        width: 49%;
+    }
 }
 
-.publicacion-input-checkbox{
-    
-    margin: 10px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
-    font-weight: 400;
+@media (min-width: 769px) { /* Escritorio */
+    .Publicaciones {
+        max-width: 600px; /* Limita el ancho en pantallas grandes */
+        margin: 0.5rem auto; /* Centra las publicaciones */
+    }
 
-}
+    .logo {
+        max-width: 800px;
+        margin: 0 auto;
+    }
 
-.div-publicacion-div-input{
-    margin-left: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.div-publicacion-div-input input{
-    appearance: none;
-    border: 1px solid rgb(185, 185, 185);
-    width: 20px;
-    height: 20px;
-    border-radius: 3px;
-}
-
-.botones-publicacion{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 30px 0;
-}
-.botonP{
-    width: 46.5%;
-    height: 32px;
-    border-radius: 3px;
-    border: 1px solid #026C80;
-    font-size: 16px; 
-    margin: 0 5px;
-    font-weight: 00;
-}
-
-.publicar{
-    background-color: #026C80;
-    color: white;
-}
-
-.vista-previa{
-    border: 1px solid rgb(176, 176, 176);
-}
-
-.crearP-h1{
-    text-align: center;
-    font-size: 25px;
-    font-weight: 500;
-    padding: 30px;
+    .Fin {
+        max-width: 800px;
+        margin: 0 auto;
+    }
 }
