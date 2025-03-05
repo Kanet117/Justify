@@ -1,0 +1,319 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    background-color: rgb(214, 214, 214);
+    height: 100%;
+}
+.logo{
+    background: white;
+    height: 6%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.Publicaciones{
+    background: white;
+    height: 44%;
+    margin: 3px 0 3px 0;
+}
+
+.Publicaciones-2{
+    background: rgba(255, 255, 255, 0);
+    height: 44%;
+    margin: 1px 0 1px 0;
+}
+
+.Fin{
+    background: white;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.margin{
+    margin: auto;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    color: #026C80;
+}
+.iconos{
+    width: 32px;
+    height: 32px;
+    margin: 0 5%;
+}
+.ache1{
+    margin: auto;
+    font-size: 25px;
+    font-family: "Bungee Shade";
+}
+.abajo{
+    margin: auto;
+}
+
+.chico{
+    font-size: 10px;
+}
+.nombre{
+    display: flex;
+    align-items: center;
+}
+
+.perfil{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    padding: 10px 0;
+}
+.perfil2{
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+.EmpleadoSi2{
+    width: 30%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.ftPerfil{
+    border: solid rgba(0, 0, 0,.13) 1px;
+    border-radius: 100%;
+}
+
+.EmpleadoSi{
+    color: rgb(14, 184, 14);
+    text-align: right;
+    margin: auto;
+    margin-right: 5%;
+}
+
+.EmpleadoNo{
+    color: rgb(150, 18, 8);
+    text-align: right;
+    margin: auto;
+    margin-right: 5%;
+}
+
+.texto{
+    text-align: left;
+    font-size: 14px;
+    margin-left: 4px;
+    margin-bottom: 2px;
+    
+}
+
+.imagen{
+    height: 100%;
+    width: 49%;
+    
+    margin: auto;
+}
+
+.fotos{
+    display: flex;
+    padding: 0px 0;
+}
+
+.fotos img:nth-child(1):nth-last-child(1) {
+    width: 100%; 
+    
+}
+
+.fotos img:nth-child(1):nth-last-child(2),
+.fotos img:nth-child(2):nth-last-child(1) {
+    width: 49%; 
+}
+
+.hrPubli{
+    border: none;
+    background-color: rgb(199, 199, 199);
+    height: 1px;
+}
+
+.interaccion{
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    margin: auto;
+}
+.iconos2{
+    width: 25px;
+    height: 25px;
+}
+.iconos3{
+    width: 22px;
+    height: 22px;
+}
+
+.Ticonos3{
+font-size: 12px;
+}
+
+.dInt{
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: center;
+}
+
+.dInt2{
+    display: flex;
+    align-items: center;
+    width: 20%;
+    justify-content: center;
+}
+.logo img{
+    margin: 0 18px;
+}
+.estado{
+    color: blueviolet;
+}
+.negro{
+    color: black;
+}
+
+
+
+
+.empleos-todo{
+    background-color: white;
+    margin-top: 2px;
+    padding: 20px 0px;
+}
+
+.busqueda-empleo{
+    margin: auto;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    width: 93% !important;
+    max-width: 93% !important;
+    border: 1px solid rgb(157, 157, 157);
+    border-radius: 4px;
+}
+.empleos-parati{
+    display: flex;
+    padding: 20px 0 0;
+}
+.empleos-parati p{
+    font-size: 15px;
+    margin: auto;
+    text-align: center;
+    padding: 5px;
+    width: 35%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.input-busqueda-empleo::placeholder, .boton-busqueda-empleo{
+    font-size: 14px;
+}
+
+.variable2{
+    border-bottom: 4px solid #026C80;
+}
+
+.input-busqueda-empleo, .boton-busqueda-empleo{
+    border: none;
+}
+.input-busqueda-empleo{
+    margin: 0 15px;
+    max-width: 30%;
+}
+
+.boton-busqueda-empleo{
+    background-color: #026C80;
+    color: white;
+    border-radius: 2px;
+    padding: 3px 10px;
+}
+
+.trabajos{
+    background-color: white;
+    margin:  auto;
+    padding: 3px 5px;
+}
+
+.trabajo-div{
+    border: 1px solid rgb(205, 204, 204);
+    border-radius: 7px;
+}
+
+.dinero{
+    color: rgb(9, 153, 9);
+}
+.caracteristicas-div{
+    max-width: 95%;
+    display: flex;
+    margin: 10px auto;
+}
+
+.caracteristicas{
+    background-color: #026C80;
+    color: rgb(255, 255, 255);
+    margin: auto;
+    padding: 2px 22px;
+    border-radius: 2px;
+}
+
+.descripcion-div{
+    max-width: 80%;
+    margin: 15px auto;
+}
+
+.trabajo-tipo{
+    display: flex;
+    align-items: center;
+}
+
+.foto-empresa-datos{
+    display: flex;
+    align-items: center;
+}
+.iconosE{
+    width: 35px;
+    height: 35px;
+    margin-right:7px;
+    box-shadow: 0px 5px 4px rgb(166, 166, 166);
+}
+
+.datos-trabajo{
+    display: flex;
+    align-items: center;
+}
+
+.trabajo-div{
+    padding: 7px;
+}
+.caracteristicas-p{
+    font-weight: 600;
+    font-size: 11px;
+    font-weight: 700;
+    font-family: "Inter";
+}
+
+.letra-trabajo{
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+}
+
+.ganancias{
+    margin: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 14px;
+    
+}
+
+.letra-descripcion{
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
