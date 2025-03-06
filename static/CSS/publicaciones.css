@@ -1,0 +1,45 @@
+/* static/css/estilos.css */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.card-header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card-header p {
+    margin: 5px 0 0;
+    font-size: 12px;
+    color: #666;
+}
+
+.card-img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.card-body p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Resto del CSS para el modal sigue igual */
+.btn-publicar { /* ... */ }
+.modal { /* ... */ }
+/* etc. */

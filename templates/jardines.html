@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+{% block titulo %} Exteriores {% endblock %}
+{% block contenido %}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+    <a class="navbar-brand" href="/user">Arquitectos</a>
+    <i class="fa-solid fa-house-laptop fa-bounce" style="color: #74C0FC;"></i> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <a class="nav-link">{{current_user.nombre}}</a>
+        </li>
+        </ul>
+    
+    &nbsp; &nbsp; <a class="nav-link active" aria-current="page" href="/signout">Sign Out &nbsp;<i class="fa-solid fa-arrow-right-from-bracket fa-fade" style="color: #1a4974;"></i></a>
+                    
+    </div>
+</nav>
+
+<div class="container text-center"> 
+    <a href="/interiores" class="boton-ovalado">Interior</a>
+    <a href="/exteriores" class="boton-ovalado">Exterior</a>
+    <a href="/jardines" class="boton-ovaladoSelect">Jardin</a>
+</div>
+
+<div class="container" style="padding: 30px;">
+    <div class="row row-cols-1 row-cols-md-3 g-4 justify-content-center">
+        {% for pjar in proyectosjar %}
+        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+            <div class="card h-100 w-100">
+                <img src="{{ url_for('static', filename='IMG/Jardin/' + pjar.4) }}" class="card-img-top" alt="Not found" style="object-fit: cover; height: 200px; width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ pjar.1 }}</h5>
+                    <p class="card-text">{{ pjar.2 }}</p>
+                    <p class="card-text">{{ pjar.3 }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

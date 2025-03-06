@@ -1,0 +1,46 @@
+{% extends 'layout.html' %}
+{% block titulo %} Publicaciones {% endblock %}
+{% block contenido %}
+<div class="Publicaciones">
+    {% for pub in publicaciones %}
+    <div class="card">
+        <div class="card-header">
+            <h5>{{ pub['titulo'] }}</h5>
+            <p>Por: {{ pub['nombre'] }} | {{ pub['fecha'] }}</p>
+        </div>
+        {% if pub['imagen'] %}
+        <img src="{{ url_for('static', filename='IMG/' + pub['imagen']) }}" class="card-img" alt="Imagen de la publicación">
+        {% endif %}
+        <div class="card-body">
+            <p>{{ pub['descripcion'] }}</p>
+            <!-- Mostrar botones de Editar/Borrar según permisos -->
+            {% if current_user.is_authenticated %}
+                {% if current_user.perfil == 'A' or (current_user.perfil in ['U', 'E'] and pub['usuario_id'] == current_user.id) %}
+                    <a href="{{ url_for('editar_publicacion', id=pub['id_publicacion']) }}" class="btn btn-primary btn-sm">Editar</a>
+                    <a href="{{ url_for('borrar_publicacion', id=pub['id_publicacion']) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de borrar esta publicación?')">Borrar</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    <button class="btn-publicar" onclick="abrirModal()">Crear Publicación</button>
+
+    <!-- Modal para nueva publicación -->
+    <div id="modalPublicacion" class="modal">
+        <div class="modal-contenido">
+            <span class="cerrar" onclick="cerrarModal()">×</span>
+            <h2>Nueva Publicación</h2>
+            <form action="/crear_publicacion" method="POST" enctype="multipart/form-data">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" name="titulo" required>
+                <label for="descripcion">Descripción (máx. 500 palabras):</label>
+                <textarea id="descripcion" name="descripcion" rows="5" maxlength="2500" onkeyup="contarPalabras(this)" required></textarea>
+                <p id="contador">0/500 palabras</p>
+                <label for="imagen">Subir Imagen (opcional):</label>
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+                <button type="submit" class="btn-enviar">Publicar</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

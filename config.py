@@ -1,12 +1,13 @@
 class Config:
     SECRET_KEY = 'falksdjflakñdfañlkdfañlksdfjañlkdfpoiquerpoiquezxcvbnvm'
     DEBUG = True
+    
 
 class DevelopmentConfig(Config):
     MYSQL_HOST = 'localhost'
     MYSQL_USER = 'root'
     MYSQL_PASSWORD = 'mysql'
-    MYSQL_DB = 'eclipsehome'
+    MYSQL_DB = 'justify'
     MYSQL_SOCKET = '/Applications/XAMPP/xamppfiles/var/mysql/mysql.sock'
     
     '''
