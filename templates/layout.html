@@ -4,59 +4,83 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block titulo %}{% endblock %}</title>
-    <!--<link rel="stylesheet" href="{{ url_for('static',filename='/css/bootstrap.min.css')}}">-->
-    <link rel="stylesheet" href="{{ url_for('static',filename='/css/all.min.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='/CSS/index.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='/css/Css.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/all.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/Css.css') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    <link href="static/Font Letter/MANDISA-ThinItalic.otf" rel="stylesheet">
+    <link href="{{ url_for('static', filename='Font Letter/MANDISA-ThinItalic.otf') }}" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
-
-  
-  
 </head>
 <body>
-  
+    <!-- Navbar (usando div class="logo") -->
+    <nav class="navbar">
         <div class="logo">
-              
             <div class="margin">
-                <img class="ajustes iconos" src="/static/IMG/Logo oficial.png" alt="">
+                <img class="ajustes iconos" src="{{ url_for('static', filename='img/Logo oficial.png') }}" alt="Logo Justify">
                 <h1 class="ache1">Justify</h1>
             </div>
-            <li class="nav-item">
-              <a class="nav-link">{{current_user.nombre}}</a>
-            </li>
-            <img class="ajustes iconos2" src="/static/IMG/buscar.png" alt="">
-            <img class="mensajes iconos2" src="/static/IMG/image.png" alt="">
+            {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link">{{ current_user.nombre }}</a>
+                </li>
+            {% endif %}
+            <img class="ajustes iconos2" src="{{ url_for('static', filename='img/buscar.png') }}" alt="Buscar">
+            <img class="mensajes iconos2" src="{{ url_for('static', filename='img/image.png') }}" alt="Mensajes">
         </div>
+    </nav>
 
-  
-
+    <!-- Contenido principal -->
     {% block contenido %}{% endblock %}
-      
-      
-      <br>
-      <br>
-      <br>
-      
-      
-        
+
+    <!-- Footer (usando div class="Fin") -->
+    <footer class="footer">
         <div class="Fin">
-          <a class="abajo" href=""><img class="graduado iconos2 abajo" src="/static/IMG/perfil.png" alt=""></a>
-          <a class="abajo" href="/"><img class="casa iconos2 abajo" src="/static/IMG/casa.png" alt=""></a>
-          <a class="abajo" href="/crear-publicaciones"><img class="trabajo iconos2 abajo" src="/static/IMG/agregar.png" alt=""></a>
-          <a class="abajo" href="trabajo.html"><img class="trabajo iconos2 abajo" src="/static/IMG/trabajo.png" alt=""></a>
-          <a class="abajo" href=""><img class="trabajo iconos2 abajo" src="/static/IMG/activo.png" alt=""></a>
+            <a class="abajo" href="/signin"><img class="graduado iconos2 abajo" src="{{ url_for('static', filename='img/perfil.png') }}" alt="Perfil"></a>
+            <a class="abajo" href="/signup"><img class="casa iconos2 abajo" src="{{ url_for('static', filename='img/casa.png') }}" alt="Inicio"></a>
+            <a class="abajo" id="btn-agregar" href="javascript:void(0)"><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/agregar.png') }}" alt="Agregar"></a>
+            <a class="abajo" href="trabajo.html"><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/trabajo.png') }}" alt="Trabajo"></a>
+            <a class="abajo" href=""><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/activo.png') }}" alt="Activo"></a>
         </div>
-      
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-      
-      <!--<script src="{{ url_for ('static',filename='/JS/bootstrap.bundle.min.js')}}"></script>-->
-      <script src="{{ url_for ('static',filename='/JS/all.min.js')}}"></script>
-      <script src="{{ url_for ('static',filename='/JS/scrollreveal.min.js')}}"></script>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='JS/all.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/scrollreveal.min.js') }}"></script>
+    <script>
+        // Abrir modal al hacer clic en el botón de agregar
+        document.getElementById('btn-agregar').addEventListener('click', function() {
+            document.getElementById('modalPublicacion').style.display = 'block';
+        });
+
+        // Cerrar modal al hacer clic en la X
+        document.getElementsByClassName('cerrar')[0].addEventListener('click', function() {
+            document.getElementById('modalPublicacion').style.display = 'none';
+        });
+
+        // Cerrar modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            var modal = document.getElementById('modalPublicacion');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        };
+
+        // Contar palabras en tiempo real
+        function contarPalabras(textarea) {
+            let texto = textarea.value.trim();
+            let palabras = texto === "" ? 0 : texto.split(/\s+/).length;
+            let contador = document.getElementById('contador');
+            contador.textContent = `${palabras}/500 palabras`;
+            if (palabras > 500) {
+                contador.style.color = 'red';
+            } else {
+                contador.style.color = '#666';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -1,302 +1,131 @@
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
+/* static/css/index.css */
 body {
-    background-color: rgb(214, 214, 214);
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-    padding-top: 80px; /* Espacio para .logo */
-    padding-bottom: 60px; /* Espacio para .Fin */
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-.logo {
-    background: white;
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: fixed;
-    top: 0;
-    left: 0; /* Pegado al borde izquierdo */
-    right: 0; /* Pegado al borde derecho */
-    width: 100%; /* Ocupa todo el ancho */
-    z-index: 1000;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.Publicaciones {
-    background: white;
-    margin: 3px 0;
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
     padding: 10px;
 }
 
-.Fin {
-    background: white;
-    padding: 10px 0;
+.logo {
     display: flex;
-    justify-content: space-around;
-    position: fixed;
-    bottom: -1px;
-    left: 0; /* Pegado al borde izquierdo */
-    right: 0; /* Pegado al borde derecho */
-    width: 100%; /* Ocupa todo el ancho */
-    z-index: 1000;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    align-items: center;
+    justify-content: space-between;
 }
 
 .margin {
-    margin-left: 5px;
     display: flex;
     align-items: center;
-    color: #026C80;
-}
-
-.iconos {
-    width: 32px;
-    height: 32px;
-    margin: 0 5%;
 }
 
 .ache1 {
-    font-size: 25px;
-    font-family: "Bungee Shade", sans-serif;
+    font-family: 'Bungee Shade', cursive;
+    margin-left: 10px;
 }
 
-.abajo {
-    margin: auto;
+.iconos, .iconos2 {
+    width: 30px;
+    height: 30px;
 }
 
-.chico {
-    font-size: 10px;
-}
-
-.nombre {
-    display: flex;
-    align-items: center;
-}
-
-.perfil {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-}
-
-.perfil2 {
-    width: 70%;
-    display: flex;
-    align-items: center;
-}
-
-.EmpleadoSi2 {
-    width: 30%;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 10px;
-}
-
-.ftPerfil {
-    border: solid rgba(0, 0, 0, 0.13) 1px;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-}
-
-.texto {
-    text-align: left;
-    font-size: 14px;
-    margin-left: 4px;
-    margin-bottom: 2px;
-}
-
-.imagen {
-    height: 100%;
-    width: 49%;
-    margin: auto;
-}
-
-.fotos {
-    display: flex;
-    padding: 0px 0;
-}
-
-.fotos img:nth-child(1):nth-last-child(1) {
+.footer {
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
     width: 100%;
 }
 
-.fotos img:nth-child(1):nth-last-child(2),
-.fotos img:nth-child(2):nth-last-child(1) {
-    width: 49%;
-}
-
-.hrPubli {
-    border: none;
-    background-color: rgb(199, 199, 199);
-    height: 1px;
-}
-
-.interaccion {
+.Fin {
     display: flex;
-    align-items: center;
-    padding: 10px 0;
+    justify-content: space-around;
 }
 
-.iconos2 {
-    width: 25px;
-    height: 25px;
+.abajo img {
+    width: 30px;
+    height: 30px;
 }
 
-.iconos3 {
-    width: 22px;
-    height: 22px;
+.container {
+    max-width: 800px;
+    margin: 60px auto 80px; /* Espacio para navbar y footer */
+    padding: 20px;
 }
 
-.Ticonos3 {
+.card {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #fff;
+}
+
+.card-header h5 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.card-header p {
+    margin: 5px 0 0;
     font-size: 12px;
+    color: #666;
 }
 
-.dInt {
-    display: flex;
-    align-items: center;
-    width: 40%;
-    justify-content: center;
+.card-img {
+    max-width: 100%;
+    height: auto;
+    margin: 10px 0;
 }
 
-.dInt2 {
-    display: flex;
-    align-items: center;
-    width: 20%;
-    justify-content: center;
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
 }
 
-.logo img {
-    margin: 0 18px;
+.modal-contenido {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 5px;
+    width: 75%; /* 3/4 de la pantalla */
+    max-width: 600px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-/* Media Queries para móviles */
-@media (max-width: 480px) {
-    .Publicaciones {
-        padding: 5px;
-        margin: 2px 0;
-    }
-
-    .iconos {
-        width: 20px;
-        height: 20px;
-        margin: 0 2%;
-    }
-
-    .ftPerfil {
-        width: 24px;
-        height: 24px;
-    }
-
-    .texto {
-        font-size: 12px;
-        margin: 2px 3px;
-    }
-
-    .imagen {
-        width: 50%;
-        max-width: 250px;
-        height: auto;
-        max-height: 200px;
-        margin: 0 auto;
-    }
-
-    .fotos {
-        flex-direction: column;
-        gap: 3px;
-        align-items: center;
-    }
-
-    .fotos img:nth-child(1):nth-last-child(2),
-    .fotos img:nth-child(2):nth-last-child(1) {
-        width: 50%;
-        max-width: 250px;
-    }
-
-    .perfil {
-        padding: 5px 0;
-    }
-
-    .perfil2 {
-        width: 100%;
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .EmpleadoSi2 {
-        width: 100%;
-        justify-content: center;
-        padding: 5px 0;
-    }
-
-    .interaccion {
-        padding: 5px 0;
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-
-    .iconos3 {
-        width: 18px;
-        height: 18px;
-    }
-
-    .Ticonos3 {
-        font-size: 10px;
-    }
-
-    .dInt, .dInt2 {
-        width: 45%;
-    }
-
-    .Fin {
-        padding: 5px 0;
-    }
-
-    .logo {
-        padding: 5px 0;
-    }
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
 }
 
-/* Tablets (opcional, intermedio) */
-@media (min-width: 481px) and (max-width: 768px) {
-    .imagen {
-        width: 49%;
-    }
+.modal-botones {
+    margin-top: 20px;
+    text-align: right;
 }
 
-/* Escritorio */
-@media (min-width: 769px) {
-    .Publicaciones {
-        max-width: 600px;
-        margin: 3px auto;
-    }
+.btn-enviar {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-    .logo {
-        padding: 15px 20px; /* Mantiene el tamaño grande */
-    }
-
-    .logo .iconos {
-        width: 40px;
-        height: 40px;
-    }
-
-    .logo .ache1 {
-        font-size: 32px;
-    }
-
-    .Fin {
-        padding: 15px 20px; /* Mantiene el tamaño grande */
-    }
-
-    .Fin .iconos2 {
-        width: 32px;
-        height: 32px;
-    }
+.btn-enviar:hover {
+    background-color: #218838;
 }

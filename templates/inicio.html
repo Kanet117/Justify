@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block titulo %} Inicio {% endblock %}
+{% block contenido %}
+<div class="container">
+    {% for pub in publicaciones %}
+    <div class="card">
+        <div class="card-header">
+            <h5>{{ pub['titulo'] }}</h5>
+            <p>Por: {{ pub['nombre'] }} | {{ pub['fecha'] }}</p>
+        </div>
+        {% if pub['imagen'] %}
+        <img src="{{ url_for('static', filename='IMG/' + pub['imagen']) }}" class="card-img" alt="Imagen de la publicación">
+        {% endif %}
+        <div class="card-body">
+            <p>{{ pub['descripcion'] }}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Modal para crear publicación -->
+<div id="modalPublicacion" class="modal">
+    <div class="modal-contenido">
+        <span class="cerrar">×</span>
+        <h2>Nueva Publicación</h2>
+        <form id="form-publicacion" action="/crear_publicacion" method="POST" enctype="multipart/form-data">
+            <label for="descripcion">Descripción (máx. 500 palabras):</label>
+            <textarea id="descripcion" name="descripcion" rows="5" maxlength="2500" onkeyup="contarPalabras(this)" required></textarea>
+            <p id="contador">0/500 palabras</p>
+            <div class="modal-botones">
+                <input type="file" id="imagen" name="imagen" accept="image/*">
+                <button type="submit" class="btn-enviar">Publicar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
