@@ -8,13 +8,27 @@ body {
 .navbar {
     background-color: #fff;
     border-bottom: 1px solid #ddd;
-    padding: 10px;
+    padding: 10px 20px; /* Ajustamos el padding para reducir espacio innecesario */
 }
 
 .logo {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Separa el logo (izquierda) del bloque derecho */
+    width: 100%; /* Asegura que ocupe todo el ancho */
+}
+
+.logo a {
+    text-decoration: none; /* Quitar subrayado del enlace */
+    color: inherit; /* Heredar el color del texto */
+}
+
+.logo a:hover {
+    opacity: 0.8; /* Efecto al pasar el mouse */
+}
+
+.logo img {
+    vertical-align: middle; /* Alinear verticalmente el logo */
 }
 
 .margin {
@@ -30,6 +44,40 @@ body {
 .iconos, .iconos2 {
     width: 30px;
     height: 30px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Empuja todo el bloque derecho al borde derecho */
+}
+
+.nav-user {
+    margin-right: 20px; /* Espacio entre el nombre y los iconos */
+}
+
+.nav-user a {
+    text-decoration: none;
+    color: #000;
+}
+
+.nav-user a:hover {
+    color: #007bff;
+}
+
+.nav-icons {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Más espacio entre los iconos para que no se vean apretados */
+}
+
+.nav-icons a {
+    text-decoration: none;
+    color: #000; /* Color del texto de Sign out */
+}
+
+.nav-icons a:hover {
+    color: #007bff; /* Cambio de color al pasar el mouse sobre Sign out */
 }
 
 .footer {

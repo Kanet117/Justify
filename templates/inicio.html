@@ -1,6 +1,37 @@
 {% extends 'layout.html' %}
 {% block titulo %} Inicio {% endblock %}
 {% block contenido %}
+
+<!-- Navbar (usando div class="logo") -->
+<nav class="navbar">
+    <div class="logo">
+        <div class="margin">
+            <a href="/">
+                <img class="ajustes iconos" src="{{ url_for('static', filename='img/Logo oficial.png') }}" alt="Logo Justify">
+            </a>
+            <a href="/">
+                <h1 class="ache1">Justify</h1>
+            </a>
+        </div>
+        <div class="nav-right">
+            {% if current_user.is_authenticated %}
+                <div class="nav-user">
+                    <a href="/perfil" class="nav-link">{{ current_user.nombre }}</a>
+                </div>
+            {% endif %}
+            <div class="nav-icons">
+                <a href="/buscar">
+                    <img class="ajustes iconos2" src="{{ url_for('static', filename='img/buscar.png') }}" alt="Buscar">
+                </a>
+                <a href="/mensajes">
+                    <img class="mensajes iconos2" src="{{ url_for('static', filename='img/image.png') }}" alt="Mensajes">
+                </a>
+                <a class="nav-link active" aria-current="page" href="/logout">Sign out <i class="fa-solid fa-arrow-right-from-bracket fa-fade" style="color: #1a4974;"></i></a>
+            </div>
+        </div>
+    </div>
+</nav>
+
 <div class="container">
     {% for pub in publicaciones %}
     <div class="card">
@@ -34,4 +65,14 @@
         </form>
     </div>
 </div>
+
+<footer class="footer">
+    <div class="Fin">
+        <a class="abajo" href="/perfil"><img class="graduado iconos2 abajo" src="{{ url_for('static', filename='img/perfil.png') }}" alt="Perfil"></a>
+        <a class="abajo" href="/"><img class="casa iconos2 abajo" src="{{ url_for('static', filename='img/casa.png') }}" alt="Inicio"></a>
+        <a class="abajo" id="btn-agregar" href="javascript:void(0)"><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/agregar.png') }}" alt="Agregar"></a>
+        <a class="abajo" href="trabajo.html"><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/trabajo.png') }}" alt="Trabajo"></a>
+        <a class="abajo" href=""><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/activo.png') }}" alt="Activo"></a>
+    </div>
+</footer>
 {% endblock %}

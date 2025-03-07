@@ -2,6 +2,27 @@
 {% block titulo %}Sign up{% endblock %}
 {% block contenido %}
 
+<!-- Navbar (usando div class="logo") -->
+<nav class="navbar">
+  <div class="logo">
+      <div class="margin">
+        <a href="/">
+          <img class="ajustes iconos" src="{{ url_for('static', filename='img/Logo oficial.png') }}" alt="Logo Justify">
+        </a>
+        <a href="/">
+          <h1 href="/" class="ache1">Justify</h1>
+        </a>  
+        </div>
+      {% if current_user.is_authenticated %}
+          <li class="nav-item">
+              <a class="nav-link">{{ current_user.nombre }}</a>
+          </li>
+      {% endif %}
+      <img class="ajustes iconos2" src="{{ url_for('static', filename='img/buscar.png') }}" alt="Buscar">
+      <img class="mensajes iconos2" src="{{ url_for('static', filename='img/image.png') }}" alt="Mensajes">
+  </div>
+</nav>
+
 <div class="container" style="margin-top: 50px;">
 
     <form method="post" action="/signup" class="row g-3">
@@ -39,4 +60,14 @@
       </form>
 
 </div>
+
+<footer class="footer">
+  <div class="Fin">
+      <a class="abajo" href="/signin"><img class="graduado iconos2 abajo" src="{{ url_for('static', filename='img/perfil.png') }}" alt="Perfil"></a>
+      <a class="abajo" href="/"><img class="casa iconos2 abajo" src="{{ url_for('static', filename='img/casa.png') }}" alt="Inicio"></a>
+      <a class="abajo" id="btn-agregar" href="javascript:void(0)"><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/agregar.png') }}" alt="Agregar"></a>
+      <a class="abajo" href="trabajo.html"><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/trabajo.png') }}" alt="Trabajo"></a>
+      <a class="abajo" href=""><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/activo.png') }}" alt="Activo"></a>
+  </div>
+</footer>
 {% endblock %}

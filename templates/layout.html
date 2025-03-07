@@ -16,36 +16,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Navbar (usando div class="logo") -->
-    <nav class="navbar">
-        <div class="logo">
-            <div class="margin">
-                <img class="ajustes iconos" src="{{ url_for('static', filename='img/Logo oficial.png') }}" alt="Logo Justify">
-                <h1 class="ache1">Justify</h1>
-            </div>
-            {% if current_user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link">{{ current_user.nombre }}</a>
-                </li>
-            {% endif %}
-            <img class="ajustes iconos2" src="{{ url_for('static', filename='img/buscar.png') }}" alt="Buscar">
-            <img class="mensajes iconos2" src="{{ url_for('static', filename='img/image.png') }}" alt="Mensajes">
-        </div>
-    </nav>
+
 
     <!-- Contenido principal -->
     {% block contenido %}{% endblock %}
 
     <!-- Footer (usando div class="Fin") -->
-    <footer class="footer">
-        <div class="Fin">
-            <a class="abajo" href="/signin"><img class="graduado iconos2 abajo" src="{{ url_for('static', filename='img/perfil.png') }}" alt="Perfil"></a>
-            <a class="abajo" href="/signup"><img class="casa iconos2 abajo" src="{{ url_for('static', filename='img/casa.png') }}" alt="Inicio"></a>
-            <a class="abajo" id="btn-agregar" href="javascript:void(0)"><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/agregar.png') }}" alt="Agregar"></a>
-            <a class="abajo" href="trabajo.html"><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/trabajo.png') }}" alt="Trabajo"></a>
-            <a class="abajo" href=""><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/activo.png') }}" alt="Activo"></a>
-        </div>
-    </footer>
+    
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="{{ url_for('static', filename='JS/all.min.js') }}"></script>
