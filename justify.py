@@ -55,7 +55,23 @@ def inicio():
         cursor.execute("SELECT p.id_publicacion, p.titulo, p.descripcion, p.imagen, p.fecha, u.nombre FROM publicaciones p JOIN usuario u ON p.usuario_id = u.id ORDER BY p.fecha DESC")
         publicaciones = cursor.fetchall()
         cursor.close()
-        return render_template('inicio.html', publicaciones=publicaciones)
+
+        # Depuración: Imprimir las publicaciones obtenidas
+        print("Publicaciones obtenidas:", publicaciones)
+
+        # Convertir tuplas a diccionarios
+        publicaciones_dict = [
+            {
+                'id_publicacion': pub[0],
+                'titulo': pub[1],
+                'descripcion': pub[2],
+                'imagen': pub[3],
+                'fecha': pub[4],
+                'nombre': pub[5]
+            } for pub in publicaciones
+        ]
+        
+        return render_template('inicio.html', publicaciones=publicaciones_dict)
     except Exception as e:
         flash(f"Error al cargar publicaciones: {str(e)}")
         return redirect(url_for('home'))
@@ -84,12 +100,12 @@ def crear_publicacion():
         imagen_filename = secure_filename(imagen.filename)
         imagen.save(os.path.join(justifyApp.config['UPLOAD_FOLDER'], imagen_filename))
 
-    # Insertar en la base de datos
+    # Insertar en la base de datos con fecha actual
     try:
         cursor = mysql.connection.cursor()
         cursor.execute(
-            "INSERT INTO publicaciones (usuario_id, titulo, descripcion, imagen) VALUES (%s, %s, %s, %s)",
-            (usuario_id, titulo, descripcion, imagen_filename)
+            "INSERT INTO publicaciones (usuario_id, titulo, descripcion, imagen, fecha) VALUES (%s, %s, %s, %s, %s)",
+            (usuario_id, titulo, descripcion, imagen_filename, datetime.datetime.now())
         )
         mysql.connection.commit()
         cursor.close()

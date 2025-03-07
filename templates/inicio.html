@@ -36,7 +36,7 @@
     {% for pub in publicaciones %}
     <div class="card">
         <div class="card-header">
-            <h5>{{ pub['titulo'] }}</h5>
+            <h5>{{ pub['descripcion'][:50] }}</h5> <!-- Mostrar los primeros 50 caracteres de la descripción como título -->
             <p>Por: {{ pub['nombre'] }} | {{ pub['fecha'] }}</p>
         </div>
         {% if pub['imagen'] %}
@@ -46,6 +46,8 @@
             <p>{{ pub['descripcion'] }}</p>
         </div>
     </div>
+    {% else %}
+    <p>No hay publicaciones disponibles.</p> <!-- Mensaje si no hay publicaciones -->
     {% endfor %}
 </div>
 
@@ -75,4 +77,38 @@
         <a class="abajo" href=""><img class="trabajo iconos2 abajo" src="{{ url_for('static', filename='img/activo.png') }}" alt="Activo"></a>
     </div>
 </footer>
+
+<script>
+    // Abrir modal al hacer clic en el botón de agregar
+    document.getElementById('btn-agregar').addEventListener('click', function() {
+        document.getElementById('modalPublicacion').style.display = 'block';
+    });
+
+    // Cerrar modal al hacer clic en la X
+    document.getElementsByClassName('cerrar')[0].addEventListener('click', function() {
+        document.getElementById('modalPublicacion').style.display = 'none';
+    });
+
+    // Cerrar modal al hacer clic fuera de él
+    window.onclick = function(event) {
+        var modal = document.getElementById('modalPublicacion');
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    };
+
+    // Contar palabras en tiempo real
+    function contarPalabras(textarea) {
+        let texto = textarea.value.trim();
+        let palabras = texto === "" ? 0 : texto.split(/\s+/).length;
+        let contador = document.getElementById('contador');
+        contador.textContent = `${palabras}/500 palabras`;
+        if (palabras > 500) {
+            contador.style.color = 'red';
+        } else {
+            contador.style.color = '#666';
+        }
+    }
+</script>
+
 {% endblock %}
