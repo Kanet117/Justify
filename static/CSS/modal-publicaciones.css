@@ -1,0 +1,127 @@
+/* Estilos para el modal */
+.modal {
+    display: none; /* Oculta el modal por defecto */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semitransparente */
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-contenido {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%; /* Ajusta el ancho del modal */
+    max-width: 600px; /* Limita el ancho máximo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+
+/* Estilo para el botón de cerrar */
+.cerrar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.cerrar:hover {
+    color: #000;
+}
+
+/* Estilo para el título del modal */
+.modal-contenido h2 {
+    margin: 0 0 20px;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* Estilo para el formulario */
+#form-publicacion {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Estilo para el input de título */
+#titulo {
+    width: 100%; /* Ocupa todo el ancho disponible dentro del contenedor */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
+}
+
+/* Estilo para el textarea */
+#descripcion {
+    width: 100%; /* Ocupa todo el ancho disponible dentro del contenedor */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: none; /* Hace el textarea estático, sin posibilidad de redimensionar */
+    box-sizing: border-box; /* Incluye padding y borde en el cálculo del ancho */
+}
+
+/* Estilo para el contador de palabras */
+#contador {
+    font-size: 14px;
+    color: #666;
+    text-align: right;
+    margin: 0;
+}
+
+/* Estilo para la sección de botones */
+.modal-botones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Estilo para el input de archivo */
+#imagen {
+    font-size: 14px;
+}
+
+/* Estilo para el botón de enviar */
+.btn-enviar {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividad */
+@media (max-width: 600px) {
+    .modal-contenido {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .modal-botones {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-enviar {
+        width: 100%;
+    }
+}

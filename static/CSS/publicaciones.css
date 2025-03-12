@@ -1,6 +1,6 @@
 /* static/css/estilos.css */
 .container {
-    max-width: 800px;
+    max-width: 600px; /* Tarea 1: Reducir el ancho de las publicaciones (antes era 800px) */
     margin: 20px auto;
 }
 
@@ -10,6 +10,7 @@
     margin-bottom: 20px;
     padding: 15px;
     background-color: #fff;
+    min-height: 250px; /* Tarea 1: Aumentar ligeramente la altura de las publicaciones */
 }
 
 .card-header {
@@ -29,9 +30,10 @@
 }
 
 .card-img {
-    max-width: 100%;
+    max-width: 60%; /* Tarea 2: Reducir el tamaño de las imágenes al 60% del ancho disponible */
     height: auto;
-    margin: 10px 0;
+    margin: 10px auto; /* Tarea 2: Centrar las imágenes horizontalmente */
+    display: block; /* Tarea 2: Asegurar que la imagen se comporte como un bloque para el centrado */
 }
 
 .card-body p {

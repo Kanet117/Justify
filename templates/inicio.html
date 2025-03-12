@@ -1,7 +1,8 @@
 {% extends 'layout.html' %}
 {% block titulo %} Inicio {% endblock %}
 {% block contenido %}
-
+<link rel="stylesheet" href="/static/CSS/modal-publicaciones.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/publicaciones.css') }}">
 <!-- Navbar (usando div class="logo") -->
 <nav class="navbar">
     <div class="logo">
@@ -36,7 +37,7 @@
     {% for pub in publicaciones %}
     <div class="card">
         <div class="card-header">
-            <h5>{{ pub['descripcion'][:50] }}</h5> <!-- Mostrar los primeros 50 caracteres de la descripción como título -->
+            <h5>{{ pub['titulo']}}</h5> <!-- Mostrar los primeros 50 caracteres de la descripción como título -->
             <p>Por: {{ pub['nombre'] }} | {{ pub['fecha'] }}</p>
         </div>
         {% if pub['imagen'] %}
@@ -57,7 +58,9 @@
         <span class="cerrar">×</span>
         <h2>Nueva Publicación</h2>
         <form id="form-publicacion" action="/crear_publicacion" method="POST" enctype="multipart/form-data">
-            <label for="descripcion">Descripción (máx. 500 palabras):</label>
+            <label for="titulo">Título:</label>
+            <input type="text" id="titulo" name="titulo" maxlength="50" required>
+            <label for="descripcion">Descripción:</label>
             <textarea id="descripcion" name="descripcion" rows="5" maxlength="2500" onkeyup="contarPalabras(this)" required></textarea>
             <p id="contador">0/500 palabras</p>
             <div class="modal-botones">
@@ -79,35 +82,37 @@
 </footer>
 
 <script>
-    // Abrir modal al hacer clic en el botón de agregar
-    document.getElementById('btn-agregar').addEventListener('click', function() {
-        document.getElementById('modalPublicacion').style.display = 'block';
-    });
+    // Obtener el modal
+    var modal = document.getElementById("modalPublicacion");
 
-    // Cerrar modal al hacer clic en la X
-    document.getElementsByClassName('cerrar')[0].addEventListener('click', function() {
-        document.getElementById('modalPublicacion').style.display = 'none';
-    });
+    // Obtener el botón que abre el modal (ajusta el ID según tu botón)
+    var btnAbrir = document.querySelector(".publicar"); // Cambia ".publicar" por el selector de tu botón
 
-    // Cerrar modal al hacer clic fuera de él
+    // Obtener el elemento <span> que cierra el modal
+    var cerrar = document.getElementsByClassName("cerrar")[0];
+
+    // Cuando el usuario hace clic en el botón, abrir el modal
+    btnAbrir.onclick = function() {
+        modal.style.display = "flex";
+    }
+
+    // Cuando el usuario hace clic en <span> (x), cerrar el modal
+    cerrar.onclick = function() {
+        modal.style.display = "none";
+    }
+
+    // Cuando el usuario hace clic fuera del modal, cerrarlo
     window.onclick = function(event) {
-        var modal = document.getElementById('modalPublicacion');
         if (event.target == modal) {
-            modal.style.display = 'none';
+            modal.style.display = "none";
         }
-    };
+    }
 
-    // Contar palabras en tiempo real
+    // Función para contar palabras
     function contarPalabras(textarea) {
-        let texto = textarea.value.trim();
-        let palabras = texto === "" ? 0 : texto.split(/\s+/).length;
-        let contador = document.getElementById('contador');
-        contador.textContent = `${palabras}/500 palabras`;
-        if (palabras > 500) {
-            contador.style.color = 'red';
-        } else {
-            contador.style.color = '#666';
-        }
+        var texto = textarea.value.trim();
+        var palabras = texto.length > 0 ? texto.split(/\s+/).length : 0;
+        document.getElementById("contador").innerText = palabras + "/500 palabras";
     }
 </script>
 
